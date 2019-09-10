@@ -1,31 +1,40 @@
 <template>
   <div class="welcome-context">
-    <ul ref="entry" v-loading="loading" class="entry-list">
-      <list-item v-for="(item, index) in recommends" :key="index" :item="item">
-        <div class="title-row">
-          <span class="title">{{ item.title }}{{ index + 1 }}</span>
-          <div class="content">
-            <div class="box">
-              {{ item.content }}
+    <div class="entry-list">
+      <ul ref="entry">
+        <list-item
+          v-for="(item, index) in recommends"
+          :key="index"
+          :item="item"
+        >
+          <div class="title-row">
+            <span class="title">{{ item.title }}{{ index + 1 }}</span>
+            <div class="content">
+              <div class="box">
+                {{ item.content }}
+              </div>
+            </div>
+            <div class="footer">
+              <div class="info">
+                <i class="el-icon-s-custom"></i>
+                {{ item.author }}
+                &nbsp;
+                <i class="el-icon-time"></i>
+                {{ item.time }}
+              </div>
+              <el-button-group>
+                <el-button size="mini" icon="el-icon-medal-1"></el-button>
+                <el-button size="mini" icon="el-icon-share"></el-button>
+                <el-button size="mini" icon="el-icon-star-off"></el-button>
+              </el-button-group>
             </div>
           </div>
-          <div class="footer">
-            <div class="info">
-              <i class="el-icon-s-custom"></i>
-              {{ item.author }}
-              &nbsp;
-              <i class="el-icon-time"></i>
-              {{ item.time }}
-            </div>
-            <el-button-group>
-              <el-button size="mini" icon="el-icon-medal-1"></el-button>
-              <el-button size="mini" icon="el-icon-share"></el-button>
-              <el-button size="mini" icon="el-icon-star-off"></el-button>
-            </el-button-group>
-          </div>
-        </div>
-      </list-item>
-    </ul>
+        </list-item>
+      </ul>
+      <p v-if="loading" class="loading">
+        <i class="el-icon-loading"></i>加载中...
+      </p>
+    </div>
     <aside class="welcome">
       <section class="section auth-section shadow">
         <div class="title">掘金 - juejin.im</div>
@@ -233,9 +242,11 @@ export default {
     padding: 0;
     margin: 0;
     background: #fff;
+    text-align: center;
     overflow: hidden;
     flex-grow: 1;
     .title-row {
+      text-align: left;
       margin: 0.1rem 0;
       overflow: hidden;
       text-overflow: ellipsis;
@@ -274,6 +285,11 @@ export default {
           display: inline-block;
         }
       }
+    }
+    .loading {
+      background-color: #dedede;
+      padding: 0.5rem 0;
+      color: #007fff;
     }
   }
 
