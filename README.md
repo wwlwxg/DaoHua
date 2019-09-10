@@ -1,6 +1,6 @@
 # DaoHua
 
-> 农村电商平台
+> 仿掘金平台
 
 ## Build Setup
 
