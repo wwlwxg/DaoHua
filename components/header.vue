@@ -24,8 +24,12 @@
 
 <script>
 import { mapState } from 'vuex'
+import VSearch from './search.vue'
 export default {
   name: 'VHeader',
+  components: {
+    VSearch
+  },
   data() {
     return {
       maxClientWidth: 980

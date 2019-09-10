@@ -7,7 +7,11 @@
             <slot></slot>
           </div>
           <div v-show="item.screenshot" class="thumb">
-            <img :src="item.screenshot" />
+            <el-image :src="item.screenshot" fit="fill" lazy>
+              <div slot="placeholder" class="image-slot">
+                加载中<span class="dot">...</span>
+              </div>
+            </el-image>
           </div>
         </div>
       </a>
@@ -31,6 +35,8 @@ export default {
 <style lang="less" scoped>
 .list-item {
   list-style-type: none;
+  display: list-item;
+
   &:not(:last-child) {
     border-bottom: 1px solid #dedede;
   }
@@ -44,8 +50,8 @@ export default {
   .content-box {
     display: flex;
     align-items: center;
-    padding: 1.167rem 0;
     min-height: 5.75rem;
+    padding: 1.5rem 2rem;
   }
 
   .info-box {
@@ -59,11 +65,11 @@ export default {
 
 .thumb {
   flex: 0 0 auto;
-  width: 8.9rem;
-  height: 5.75rem;
+  width: 7rem;
+  height: 4rem;
   margin-left: 2rem;
   background-color: #000;
-  border-radius: 2px;
+  border-radius: 10px;
 
   img {
     width: 100%;

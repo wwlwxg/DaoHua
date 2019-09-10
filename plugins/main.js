@@ -1,4 +1,7 @@
 import Vue from 'vue'
-import Search from '@/components/search'
+import lodash from 'lodash'
+import moment from 'moment'
+import 'moment/locale/zh-cn'
 
-Vue.component(Search.name, Search)
+Vue.prototype.$moment = moment
+Vue.prototype.$lodash = lodash
