@@ -37,22 +37,14 @@
     </div>
     <aside class="welcome">
       <section class="section auth-section shadow">
-        <div class="title">掘金 - juejin.im</div>
-        <div class="slogan">一个帮助开发者成长的社区</div>
+        <div class="title">稻花村</div>
+        <div class="slogan">--接地气得农村信息交流平台</div>
         <div class="input-group">
           <div class="input-box">
             <input
               name="registerUsername"
               maxlength="20"
               placeholder="用户名"
-              class="input"
-            />
-          </div>
-          <div class="input-box">
-            <input
-              name="registerPhoneNumber"
-              maxlength="64"
-              placeholder="手机号"
               class="input"
             />
           </div>
@@ -67,7 +59,7 @@
             />
           </div>
         </div>
-        <button class="submit-btn">立即注册</button>
+        <button class="submit-btn">立即登录</button>
         <div class="oauth-box">
           第三方登录：
           <img
@@ -103,14 +95,15 @@
         </div>
         <div class="content">
           <div class="tag-list">
-            <a href="#" target="_blank" rel="" class="tag">架构</a>
-            <a href="#" target="_blank" rel="" class="tag">开源</a>
-            <a href="#" target="_blank" rel="" class="tag">算法</a>
-            <a href="#" target="_blank" rel="" class="tag">GitHub</a>
-            <a href="#" target="_blank" rel="" class="tag">面试</a>
-            <a href="#" target="_blank" rel="" class="tag">代码规范</a>
-            <a href="#" target="_blank" rel="" class="tag">产品</a>
-            <a href="#" target="_blank" rel="" class="tag">掘金翻译计划</a>
+            <a href="#" target="_blank" rel="" class="tag">作物</a>
+            <a href="#" target="_blank" rel="" class="tag">电商</a>
+            <a href="#" target="_blank" rel="" class="tag">物流</a>
+            <a href="#" target="_blank" rel="" class="tag">春播秋收</a>
+            <a href="#" target="_blank" rel="" class="tag">水果蔬菜</a>
+            <a href="#" target="_blank" rel="" class="tag">天气水利</a>
+            <a href="#" target="_blank" rel="" class="tag">土地流转</a>
+            <a href="#" target="_blank" rel="" class="tag">民间土方</a>
+            <a href="#" target="_blank" rel="" class="tag">轶事传说</a>
           </div>
         </div>
       </div>
@@ -121,8 +114,8 @@
             src="https://b-gold-cdn.xitu.io/v3/static/img/welcome.6f27533.png"
           />
           <div class="content-box">
-            <div class="headline">下载掘金客户端</div>
-            <div class="desc">一个帮助开发者成长的社区</div>
+            <div class="headline">下载客户端</div>
+            <div class="desc">接地气得农村信息交流平台</div>
           </div>
         </a>
       </div>
@@ -138,7 +131,7 @@
           <li class="item"><a href="/links" target="_blank">友情链接</a></li>
         </ul>
         <ul class="more-list">
-          <li class="item"><span>©2019 掘金</span></li>
+          <li class="item"><span>©2019 Arrow</span></li>
         </ul>
         <ul class="more-list">
           <li class="item">
@@ -319,6 +312,7 @@ export default {
       .slogan {
         margin-bottom: 0.5rem;
         font-size: 0.8rem;
+        text-align: right;
         color: #2e3135;
       }
       .input-box {
@@ -398,16 +392,16 @@ export default {
           justify-content: flex-start;
           flex-wrap: wrap;
           .tag {
-            margin-right: 12px;
-            margin-bottom: 12px;
+            margin-right: 10px;
+            margin-bottom: 10px;
             background-color: #f3f6f3;
             cursor: pointer;
             height: 30px;
             color: inherit;
             line-height: 30px;
-            padding-left: 22px;
-            padding-right: 22px;
-            border-radius: 30px;
+            padding-left: 15px;
+            padding-right: 15px;
+            border-radius: 25px;
             &:hover {
               color: #fff;
               background-color: #0c0;

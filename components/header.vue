@@ -10,12 +10,24 @@
           <v-search />
         </li>
         <li class="nav-item submit">
-          <i class="el-icon-edit"></i>
-          <span>写文章</span>
+          <el-popover placement="bottom" width="285" trigger="click">
+            <div class="submit-panel">
+              <div class="title">来稻花村写文章，您将有机会</div>
+              <ul class="benefit-list">
+                <li class="item">与超过 300 万开发者分享您的经验和观点</li>
+                <li class="item">被编辑推荐，获得更多曝光和关注</li>
+                <li class="item">加入专栏作者群，结识众多优秀开发者</li>
+              </ul>
+              <el-button type="success">开始写文章</el-button>
+            </div>
+            <div slot="reference">
+              <i class="el-icon-edit"></i>
+              <span>写文章</span>
+            </div>
+          </el-popover>
         </li>
         <li class="nav-item auth">
-          <span class="login">登录</span>
-          <span class="register">注册</span>
+          <span @click="onRegister">注册</span>
         </li>
       </ul>
     </div>
@@ -23,7 +35,6 @@
 </template>
 
 <script>
-import { mapState } from 'vuex'
 import VSearch from './search.vue'
 export default {
   name: 'VHeader',
@@ -31,23 +42,11 @@ export default {
     VSearch
   },
   data() {
-    return {
-      maxClientWidth: 980
-    }
+    return {}
   },
-  computed: {
-    ...mapState({
-      isPhone: (state) => state.isPhone
-    })
-  },
-  mounted() {
-    const self = this
-    document.body.onresize = () => {
-      if (document.body.clientWidth > self.maxClientWidth) {
-        self.$store.commit('PCORPHONE', false)
-      } else {
-        self.$store.commit('PCORPHONE', true)
-      }
+  methods: {
+    onRegister() {
+      this.$emit('registerShow')
     }
   }
 }
@@ -125,18 +124,10 @@ export default {
       .auth {
         color: #007fff;
         flex: 0 0 auto 1;
-
-        .login {
-          &::after {
-            content: '\B7';
-            margin: 0 0.4rem;
-          }
-        }
       }
 
       .submit {
         color: #007fff;
-
         &::after {
           content: '|';
           position: absolute;
@@ -148,6 +139,36 @@ export default {
     }
   }
 }
+
+.submit-panel {
+  box-sizing: border-box;
+  padding: 1rem 1rem;
+  text-align: center;
+  border-radius: 2px;
+  color: #909090;
+  font-size: 0.8rem;
+  background-color: #fff;
+  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.1);
+  cursor: default;
+  z-index: 11;
+  .title {
+    font-size: 1rem;
+    line-height: 1;
+    font-weight: 700;
+    color: #000;
+    text-align: center;
+    margin-bottom: 2rem;
+  }
+  .benefit-list {
+    margin-left: 1rem;
+    text-align: left;
+    .item {
+      list-style: initial;
+      margin-bottom: 1rem;
+    }
+  }
+}
+
 @media (max-width: 960px) {
   .header {
     .container {
