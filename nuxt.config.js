@@ -30,9 +30,7 @@ module.exports = {
   /*
    ** Customize the progress-bar color
    */
-  loading: {
-    color: '#fff'
-  },
+  loading: '~components/loading.vue',
   /*
    ** Global CSS
    */
@@ -60,12 +58,14 @@ module.exports = {
    ** See https://axios.nuxtjs.org/options
    */
   axios: {
-    proxy: true
-    // See https://github.com/nuxt-community/axios-module#options
+    proxy: true,
+    prefix: '/api', // baseURL
+    credentials: true
   },
   proxy: {
     '/api': {
-      target: 'https://web-api.juejin.im',
+      target: 'http://127.0.0.1:2001', // 代理地址
+      changeOrigin: true,
       pathRewrite: {
         '^/api': ''
       }

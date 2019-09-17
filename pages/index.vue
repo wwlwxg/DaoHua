@@ -172,6 +172,12 @@ export default {
       loading: false
     }
   },
+  async asyncData({ store, error }) {
+    const [res] = await Promise.all([store.news.dispatch('getList')])
+    return {
+      recommends: res.list
+    }
+  },
   mounted() {
     this.loadMore(6)
     window.addEventListener('scroll', this.handleScroll)

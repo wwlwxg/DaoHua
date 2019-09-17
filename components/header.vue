@@ -44,6 +44,15 @@ export default {
   data() {
     return {}
   },
+  asyncData({ app }) {
+    console.log(app.$axios)
+  },
+  fetch({ app }) {
+    console.log(app.$axios)
+  },
+  created() {
+    console.log(this.$axios)
+  },
   methods: {
     onRegister() {
       this.$emit('registerShow')
@@ -70,7 +79,6 @@ export default {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    position: relative;
     .logo {
       display: flex;
       align-items: center;
